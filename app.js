@@ -5,6 +5,8 @@
 class App {
   constructor() {
     // TODO(you): Implement the constructor and add fields as necessary.
+    var menuscreen = new MenuScreen();
+    menuscreen.loadAudios();
   }
-  // TODO(you): Add methods as necessary.
+
 }
