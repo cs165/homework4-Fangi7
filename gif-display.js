@@ -22,7 +22,7 @@ class GifDisplay {
     return response.json();
  }
  loadgif(){
-   fetch('http://api.giphy.com/v1/gifs/search?q='+this.keyword+'&api_key=63MNNgrWZ0dbDNnxQjl7PdyPmWFJsrgw&limit=25&rating=g')
+   fetch('https://api.giphy.com/v1/gifs/search?q='+this.keyword+'&api_key=63MNNgrWZ0dbDNnxQjl7PdyPmWFJsrgw&limit=25&rating=g')
        .then(this._onResponse)
        .then(this.onJsonReady);
    console.log("success got data");
@@ -30,7 +30,7 @@ class GifDisplay {
  }
  showgif(){
    console.log(this.gifInfo);
-   const gifUrl = this.gifInfo.data[0].images.downsized.url;
+   const gifUrl = this.gifInfo.data[0].images.downsized.url.slice(6);
    var gifscreen = document.querySelector('#music_screen');
    console.log(gifUrl);
    console.log(gifscreen.style);
@@ -39,7 +39,7 @@ class GifDisplay {
  }
  nextgif(num){
    if(num>=25) num = 0;
-   const gifUrl = this.gifInfo.data[num].images.downsized.url;
+   const gifUrl = this.gifInfo.data[num].images.downsized.url.slice(6);
    var gifscreen = document.querySelector('#music_screen');
    gifscreen.style.backgroundImage = "url("+gifUrl+")";
  }
