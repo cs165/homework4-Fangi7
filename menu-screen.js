@@ -44,7 +44,7 @@ _onSubmit(){
   }
   this.gifInfo = gifElement.loadgif(targetUrl);
   var loadElement = document.querySelector('#load');
-  loadElement.style.display = 'flex';
+  loadElement.style.display = 'block';
   this.hide();
 
 }
