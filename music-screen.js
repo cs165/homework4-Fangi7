@@ -15,6 +15,7 @@ class MusicScreen {
     this.clickbuttom = this.clickbuttom.bind(this);
     this.gifElement = gifElement;
     this.kicknum = 1;
+    this.kicknum = this.kicknum + 1;
 
     this.pauseElement = document.querySelector(".imgDiv");
     this.pauseElement.addEventListener('click',this.clickbuttom);
