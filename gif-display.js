@@ -38,12 +38,9 @@ class GifDisplay {
     this.menuElement.style.display = 'none';
     for(let i=0;i<25;i++){
       console.log("preload");
-      this.preGif[i] = new Image();
+      this.preGif[i] = new Image(this.gifInfo.data[i].images.downsized.width, this.gifInfo.data[i].images.downsized.height);
       this.preGif[i].src =  "https:"+this.gifInfo.data[i].images.downsized.url.slice(6);
     }
-
-    document.querySelector('#audio-screen').style.display = "flex";
-    document.querySelector('#load').style.display = 'none';
     this.showgif();
     const musicElement = new MusicScreen(this);
     musicElement.playAudio(this.audioUrl);
@@ -71,11 +68,14 @@ class GifDisplay {
     console.log(gifUrl);
     console.log(this.gifscreen.style);
     this.gifscreen.style.backgroundImage = "url("+gifUrl+")";
+
    //pre load
    const gifUrl2 = this.preGif[1].src;
     console.log(gifUrl2);
     console.log(this.gifscreen2.style);
     this.gifscreen2.style.backgroundImage = "url("+gifUrl2+")";
+    this.audioscreen.style.display = "flex";
+    document.querySelector('#load').style.display = 'none';
  }
  nextgif(nextnum){
    if(nextnum>=25) nextnum = 0; //not wort , just wanna wirte again
